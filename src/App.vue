@@ -333,12 +333,16 @@ export default {
   computed: {
     increaseSpeedBy: function() {
       const totatFullLengthSeconds =
-        this.fullLengthDays * 86400 +
-        this.fullLengthHours * 3600 +
-        this.fullLengthMinutes * 60 +
-        this.fullLengthSeconds;
+        Number(this.fullLengthDays) * 86400 +
+        Number(this.fullLengthHours) * 3600 +
+        Number(this.fullLengthMinutes) * 60 +
+        Number(this.fullLengthSeconds);
+
+      // eslint-disable-next-line no-debugger
+      debugger;
+
       const totalTimelapseLengthSeconds =
-        this.timelapseLengthMinutes * 60 + this.timelapseLengthSeconds;
+        Number(this.timelapseLengthMinutes) * 60 + Number(this.timelapseLengthSeconds);
       const secondsRatio = totalTimelapseLengthSeconds / totatFullLengthSeconds;
       console.log('totatFullLengthSeconds ' + totatFullLengthSeconds)
       console.log('totalTimelapseLengthSeconds: ' + totalTimelapseLengthSeconds)
